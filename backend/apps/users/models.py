@@ -2,8 +2,7 @@ from time import timezone
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin 
 import bcrypt
-
-from apps.permissions.models import Role
+# from apps.permissions.models import Role
 
 def hash_password(raw_password):
     salt = bcrypt.gensalt(rounds=12) 
@@ -46,12 +45,12 @@ class User(AbstractBaseUser, PermissionsMixin):
     REQUIRED_FIELDS = []
 
     def get_role_names(self):
-        return list(
-            self.roles
-            .filter(userrole__user=self, userrole__is_active=True)
-            .values_list("name", flat=True)
-            .distinct()
-        )
+        if self.pk:
+            return list(
+                self.user_roles.filter(is_active=True)
+                .values_list("role__name", flat=True)
+            )
+        return []
     
     def set_password(self, raw_password):
         if raw_password is not None:

@@ -5,7 +5,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -17,13 +16,15 @@ INSTALLED_APPS = [
     'apps.authentication',
     'apps.users',
     'apps.permissions',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
+    # 'apps.authentication.middleware.JWTAuthenticationMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -97,4 +98,15 @@ CACHES = {
         "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
         "LOCATION": "jwt-blacklist-cache",
     }
+}
+
+ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'apps.authentication.auth.JWTAuthentication',
+    ],
+    'DEFAULT_PERMISSION_CLASSES': [],
+    'UNAUTHENTICATED_USER': None,
 }
