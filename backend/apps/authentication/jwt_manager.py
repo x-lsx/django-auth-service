@@ -17,7 +17,6 @@ def generate_jwt(user: User) -> dict:
     
     access_payload = {
         'user_id': user.id,
-        'roles': user.get_role_names(),
         'exp': now + timedelta(minutes=settings.ACCESS_TOKEN_LIFETIME_MINUTES),
         'iat': now,
         "jti": str(uuid.uuid4()),

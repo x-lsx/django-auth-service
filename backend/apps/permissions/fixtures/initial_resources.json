@@ -1,0 +1,28 @@
+[
+  {
+    "model": "permissions.resource",
+    "pk": 1,
+    "fields": {
+      "code": "roles",
+      "name": "Роли",
+      "description": "Управление ролями системы"
+    }
+  },
+  {
+    "model": "permissions.resource",
+    "pk": 2,
+    "fields": {
+      "code": "role_access",
+      "name": "Права доступа",
+      "description": "Настройка RBAC-прав"
+    }
+  },
+  {
+    "model": "permissions.resource",
+    "pk": 3,
+    "fields": {
+      "code": "user_roles",
+      "name": "Назначение ролей"
+    }
+  }
+]

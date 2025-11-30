@@ -108,5 +108,5 @@ REST_FRAMEWORK = {
         'apps.authentication.auth.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [],
-    'UNAUTHENTICATED_USER': None,
+    # 'UNAUTHENTICATED_USER': None,
 }
