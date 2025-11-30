@@ -55,6 +55,10 @@ class UserUpdateSerializer(serializers.ModelSerializer):
         
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    role = serializers.SerializerMethodField()
     class Meta:
         model = User
-        fields = ["email", "first_name", "last_name", "middle_name"]
+        fields = ["email", "first_name", "last_name", "middle_name", "role"]
+        
+    def get_role(self, obj):
+        return obj.get_role_names()

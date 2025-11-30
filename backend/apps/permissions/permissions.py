@@ -3,15 +3,17 @@ from .services import get_user_roles, get_required_methods, has_permission
 from .models import Resource
 
 class CustomPermission(permissions.BasePermission):
+    
     def has_permission(self, request, view):
         if getattr(view, "is_public", False):
             return True
 
-        if not request.user.is_authenticated:
+        if getattr(request.user, "is_superuser", False):
+            return True
+
+        if not getattr(request.user, "is_authenticated", False):
             return False
 
-        if request.user.is_superuser:
-            return True
 
         resource_code = getattr(view, "resource_code", None)
         if not resource_code:
