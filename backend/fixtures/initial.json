@@ -1,0 +1,133 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "$2b$12$WhRmRFKxL7OALSbZti12bO3rjY0Lb6ifLhdaPs.hD0ynVGhXLW8Ta", 
+      "last_login": null,
+      "is_superuser": true,
+      "is_staff": true,
+      "is_active": true,
+      "email": "admin@ya.ru",
+      "first_name": "Админ",
+      "last_name": "Системы",
+      "middle_name": "",
+      "date_joined": "2025-01-01T00:00:00Z",
+      "updated_at":"2025-04-01T10:10:00Z"
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 2,
+    "fields": {
+      "password": "$2b$12$T6h19jQQygYyxb/KD9BCZes9SKqzTIhkaAVmaFNAW/x52k.D4HcYS", 
+      "last_login": null,
+      "is_superuser": false,
+      "is_staff": false,
+      "is_active": true,
+      "email": "user@test.ru",
+      "first_name": "Иван",
+      "last_name": "Иванов",
+      "middle_name": "Иванович",
+      "date_joined": "2025-04-01T10:00:00Z",
+      "updated_at":"2025-04-01T10:10:00Z"
+    }
+  },
+  {
+    "model": "permissions.resource",
+    "pk": 1,
+    "fields": {
+      "code": "resources",
+      "name": "Управление ресурсами"
+    }
+  },
+  {
+    "model": "permissions.resource",
+    "pk": 2,
+    "fields": {
+      "code": "roles",
+      "name": "Управление ролями"
+    }
+  },
+  {
+    "model": "permissions.resource",
+    "pk": 3,
+    "fields": {
+      "code": "role_access",
+      "name": "Права ролей"
+    }
+  },
+  {
+    "model": "permissions.resource",
+    "pk": 4,
+    "fields": {
+      "code": "user_roles",
+      "name": "Назначение ролей пользователям"
+    }
+  },
+  {
+    "model": "permissions.resource",
+    "pk": 5,
+    "fields": {
+      "code": "posts",
+      "name": "Посты в социальной сети"
+    }
+  },
+  {
+    "model": "permissions.role",
+    "pk": 1,
+    "fields": {
+      "name": "user",
+      "description": "Обычный пользователь"
+    }
+  },
+
+  {
+    "model": "permissions.roleresourceaccess",
+    "pk": 1,
+    "fields": {
+      "role": 1,
+      "resource": 5,
+      "can_create": true,
+      "can_read": true,
+      "can_read_all": true,
+      "can_update": true,
+      "can_update_all": false,
+      "can_delete": true,
+      "can_delete_all": false
+    }
+  },
+
+  {
+    "model": "permissions.userrole",
+    "pk": 1,
+    "fields": {
+      "user": 2,
+      "role": 1,
+      "is_active": true,
+      "assigned_at": "2025-04-01T10:05:00Z"
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 1,
+    "fields": {
+      "owner": 2,
+      "title": "Привет, я Иван!",
+      "content": "Это мой первый пост в этой супер-системе.работает идеально!",
+      "created_at": "2025-04-01T10:10:00Z",
+      "updated_at": "2025-04-01T10:10:00Z"
+    }
+  },
+  {
+    "model": "social.post",
+    "pk": 2,
+    "fields": {
+      "owner": 2,
+      "title": "Второй пост",
+      "content": "А вот и правда — всё работает с первого раза. Отличная работа!",
+      "created_at": "2025-04-01T11:00:00Z",
+      "updated_at": "2025-04-01T11:00:00Z"
+    }
+  }
+]
